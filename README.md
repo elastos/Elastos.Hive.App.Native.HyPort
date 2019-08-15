@@ -8,7 +8,29 @@ Hyport is a fuse application to allow cloud storage drives to be mounted as your
 - OneDrive
 - IPFS
 
-## 2. Prerequisites
+## 2. Build From Souce
+
+Before building,  certain requirement of utilities for compilation should be installed on your machine.  Otherwise, try to run the commands below to install them at
+
+```shell
+$ sudo apt-get update
+$ sudo apt-get install -f build-essential autoconf automake libtool cmake
+```
+
+After that, use the following commands to conduct building:
+
+```shell
+$ git clone https://github.com/elastos/Elastos.NET.Hive.App.Native.HyPort HyPort
+$ cd HyPort/build
+$ cmake -DCMAKE_INSTALL_PREFIX=dist ..
+$ make -j4
+$ make install
+$ cd dist/bin
+```
+
+You will find **hyport** cli command under directory **dist/bin**.
+
+## 3. Requirement for running
 
 Currently, the **hyport** command line tool is only supported for **Linux system** (**Ubuntu-16.04** is recommended) and **x86/64** architectures.
 
@@ -23,25 +45,6 @@ or with simple way like:
 ```shell
 $sudo apt-get install libfuse-dev
 ```
-
-## 3. Build
-
-#### 3.1 Install Dependencies
-  
-```shell  
-$ sudo apt update  
-$ sudo apt install -f build-essential autoconf automake libtool cmake  
-```  
-  
-#### 3.2 Build
-
-```shell  
-$ git clone https://github.com/elastos/Elastos.NET.Hive.App.Native.HyPort  
-$ cd Elastos.NET.Hive.App.Native.HyPort/build
-$ cmake [-DCMAKE_INSTALL_PREFIX=YOUR-INSTALL-PATH] ..
-$ make -j4
-$ make install
-```  
 
 ## 4. Usage
 
@@ -133,6 +136,11 @@ $ ls
 
 After that, you can see file **onedirve.txt** has been copied to **Hive IPFS** network, and **ipfs.txt** has been copied to **OneDrive** cloud drive.
 
-## 6. Notices
+## 6. Issue notices
 
-For now, **hyport** cli is still being under development, and there is lots of improvement for us ahead of us. Any feedbacks would be appreciated.
+For now, **hyport** command is still being under development, and there are lots of improvement ahead of us. Any feedback would be appreciated.
+
+## 7. License
+
+MIT
+
